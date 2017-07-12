@@ -11,27 +11,27 @@ package Entidades;
  */
 public class Cliente {
    private int id,idade,numero; 
-   private String nome,endereco,bairro,telefone,sexo; 
+   private String nome,estado,cidade,rua,bairro,telefone,sexo; 
    private float peso,altura; 
 
     public Cliente() {
         
     }
 
-    public Cliente(int id, int idade, int numero, String nome, String endereco, String bairro, String telefone, String sexo, float peso, float altura) {
+    public Cliente(int id, int idade, int numero, String nome, String estado, String cidade, String rua, String bairro, String telefone, String sexo, float peso, float altura) {
         this.id = id;
         this.idade = idade;
         this.numero = numero;
         this.nome = nome;
-        this.endereco = endereco;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.rua = rua;
         this.bairro = bairro;
         this.telefone = telefone;
         this.sexo = sexo;
         this.peso = peso;
         this.altura = altura;
     }
-
-    
 
     public int getId() {
         return id;
@@ -40,7 +40,7 @@ public class Cliente {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public int getIdade() {
         return idade;
     }
@@ -49,12 +49,52 @@ public class Cliente {
         this.idade = idade;
     }
 
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
     public String getTelefone() {
@@ -87,31 +127,9 @@ public class Cliente {
 
     public void setAltura(float altura) {
         this.altura = altura;
-    }  
-
-    public String getEndereco() {
-        return endereco;
     }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
+   
+    
 
     public void add(Cliente cliente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

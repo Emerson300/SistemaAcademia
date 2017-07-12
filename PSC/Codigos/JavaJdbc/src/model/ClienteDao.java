@@ -23,22 +23,24 @@ import javax.swing.JOptionPane;
  * @author emerson
  */
 public class ClienteDao{
-    
+
     public void Create(Cliente cliente) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
     
         try {
-            stmt = con.prepareStatement("insert into cliente (nome,idade,telefone,sexo,peso,altura,endereco,bairro,numero)values(?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("insert into cliente (nome,idade,telefone,sexo,peso,altura,estado,cidade,bairro,numero,rua)values(?,?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, cliente.getNome());
             stmt.setInt(2, cliente.getIdade());
             stmt.setString(3, cliente.getTelefone());
             stmt.setString(4, cliente.getSexo());
             stmt.setFloat(5, cliente.getPeso());
             stmt.setFloat(6, cliente.getAltura());
-            stmt.setString(7, cliente.getEndereco());
-            stmt.setString(8, cliente.getBairro());
-            stmt.setInt(9,  cliente.getNumero());
+            stmt.setString(7, cliente.getEstado());
+            stmt.setString(8, cliente.getCidade());
+            stmt.setString(9, cliente.getBairro());
+            stmt.setInt(10,  cliente.getNumero());
+            stmt.setString(11, cliente.getRua());
             
             
             stmt.executeUpdate();
@@ -72,9 +74,11 @@ public class ClienteDao{
                 cliente.setSexo(rs.getString("sexo"));
                 cliente.setPeso(rs.getFloat("peso"));
                 cliente.setAltura(rs.getFloat("altura"));
-                cliente.setEndereco(rs.getString("endereco"));
+                cliente.setEstado(rs.getString("estado"));
+                cliente.setCidade(rs.getString("cidade"));
                 cliente.setBairro(rs.getString("bairro"));
                 cliente.setNumero(rs.getInt("numero"));
+                cliente.setRua(rs.getString("rua"));
             
                 cliente.add(cliente);
                 
