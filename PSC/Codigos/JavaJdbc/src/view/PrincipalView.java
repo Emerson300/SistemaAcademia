@@ -374,13 +374,18 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jPanel6.add(jPanel7, "card2");
 
+        jPanel3.setForeground(new java.awt.Color(51, 51, 51));
+
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel4.setForeground(new java.awt.Color(51, 51, 51));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Tabela de Clientes Cadastrados");
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel5.setForeground(new java.awt.Color(204, 204, 204));
+        jPanel5.setForeground(new java.awt.Color(51, 51, 51));
 
         jLabel15.setText("nome: ");
 
@@ -423,6 +428,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel12.setBackground(new java.awt.Color(102, 102, 102));
         jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jtClientes.setBackground(new java.awt.Color(51, 51, 51));
@@ -435,12 +441,12 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         ));
         jtClientes.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jtClientesAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane1.setViewportView(jtClientes);
