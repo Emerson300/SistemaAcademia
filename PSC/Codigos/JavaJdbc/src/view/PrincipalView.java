@@ -7,8 +7,10 @@ package view;
 
 import Entidades.Cliente;
 import java.awt.CardLayout;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.ClienteDao;
@@ -19,6 +21,7 @@ import model.ClienteDao;
  */
 public class PrincipalView extends javax.swing.JFrame {
 
+   private  List<Cliente> listaclientes;
     /**
      * Creates new form PrincipalView
      */
@@ -100,7 +103,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaCliente = new javax.swing.JTable();
         jPanel11 = new javax.swing.JPanel();
         btnNovoClinente = new javax.swing.JButton();
         btnBuscarCliente = new javax.swing.JButton();
@@ -449,7 +452,9 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel12.setBackground(new java.awt.Color(102, 102, 102));
         jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jtClientes.setBackground(new java.awt.Color(51, 51, 51));
+        jtClientes.setBackground(new java.awt.Color(255, 255, 255));
+        jtClientes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jtClientes.setForeground(new java.awt.Color(0, 0, 0));
         jtClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -659,7 +664,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Gerenciar Testes de Carga");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -667,7 +672,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 "Nome Do Aluno", "Professor", "Data"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(tabelaCliente);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -859,6 +864,12 @@ public class PrincipalView extends javax.swing.JFrame {
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
          CardLayout card = (CardLayout) jPanel6.getLayout();
          card.show(jPanel6, "card4");
+         
+        ClienteDao clienteDao = new ClienteDao();
+        this.listaclientes = clienteDao.Read();
+        ModeloTabelaCliente modelo = new ModeloTabelaCliente();
+        this.jtClientes.setModel(modelo);
+    
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -891,9 +902,10 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
          
-        DefaultTableModel modelo = (DefaultTableModel) jtClientes.getModel();
-        jtClientes.setRowSorter(new TableRowSorter(modelo));
-        readJtable();
+        ClienteDao clienteDao = new ClienteDao();
+        this.listaclientes = clienteDao.Read();
+        ModeloTabelaCliente modelo = new ModeloTabelaCliente();
+        this.jtClientes.setModel(modelo);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void jtClientesAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jtClientesAncestorAdded
@@ -901,35 +913,11 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_jtClientesAncestorAdded
 
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
-        CardLayout card = (CardLayout) jPanel6.getLayout();
+         CardLayout card = (CardLayout) jPanel6.getLayout();
          card.show(jPanel6, "card13");
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgendarActionPerformed
 
-    public void readJtable(){
-        DefaultTableModel modelo = (DefaultTableModel) jtClientes.getModel();
-        modelo.setNumRows(0);
-        
-        ClienteDao cdao = new ClienteDao();
-        
-        for(Cliente c: cdao.Read()){
-            
-            modelo.addRow(new Object[]{
-            c.getNome(),
-            c.getIdade(),
-            c.getSexo(),
-            c.getPeso(),
-            c.getAltura(),
-            c.getEstado(),
-            c.getCidade(),
-            c.getBairro(),
-            c.getRua(),
-            c.getNumero(),
-            c.getTelefone(),
-            });
-        }
-            
-    }
     
     /**
      * @param args the command line arguments
@@ -1025,9 +1013,9 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTable jtClientes;
+    private javax.swing.JTable tabelaCliente;
     private javax.swing.JTabbedPane telaCliente;
     private javax.swing.JTextField txtAltura;
     private javax.swing.JTextField txtBairro;
@@ -1055,8 +1043,75 @@ public class PrincipalView extends javax.swing.JFrame {
         txtCidade.setText("");
        }
 
-    private DefaultTableModel getModelo(JTabbedPane telaCliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    private DefaultTableModel getModelo(JTabbedPane telaCliente) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+
+     //classe interna ModeloTabelaVeiculos
+    class ModeloTabelaCliente extends AbstractTableModel {
+
+        @Override
+        public String getColumnName(int coluna) {
+            if (coluna == 0) {
+                return "nome";
+            } else if (coluna == 1) {
+                return "idade";
+            } else if (coluna == 2) {
+                return "telefone";
+            } else if (coluna == 3) {
+                return "sexo";
+            }else if (coluna == 4) {
+                return "peso";
+            }else if (coluna == 5) {
+                return "altura";
+            }
+            else if (coluna == 6) {
+                return "estado";
+            }
+            else if (coluna == 7) {
+                return "cidade";
+            }
+            else if (coluna == 8) {
+                return "bairro";
+            }
+            else if (coluna == 9) {
+                return "rua";
+            }else if (coluna == 10) {
+                return "numero";
+            }
+            
+            
+                return "Teste";
+            }
+
+    @Override
+    public int getRowCount() {
+       return listaclientes.size();
     }
 
+    @Override
+    public int getColumnCount() {
+        return 10;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+       Cliente cliente = listaclientes.get(rowIndex);
+            if (columnIndex == 0) {
+                return cliente.getNome();
+            } else if (columnIndex == 1) {
+                return  cliente.getIdade();
+        
+            }
+            return null;
+    }
+       
+
+        
+
 }
+}
+
+
+  
+

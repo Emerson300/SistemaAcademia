@@ -80,7 +80,7 @@ public class ClienteDao{
                 cliente.setNumero(rs.getInt("numero"));
                 cliente.setRua(rs.getString("rua"));
             
-                cliente.add(cliente);
+                clientes.add(cliente);
                 
             }
         } catch (SQLException ex) {
