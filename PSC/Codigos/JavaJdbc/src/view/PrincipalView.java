@@ -73,7 +73,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        TelaBuscaClientes = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -84,7 +84,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtClientes = new javax.swing.JTable();
-        jPanel13 = new javax.swing.JPanel();
+        GerenciarTestes = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -104,7 +104,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabelaCliente = new javax.swing.JTable();
-        jPanel11 = new javax.swing.JPanel();
+        MenuCliente = new javax.swing.JPanel();
         btnNovoClinente = new javax.swing.JButton();
         btnBuscarCliente = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -395,7 +395,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jPanel6.add(jPanel7, "card2");
 
-        jPanel3.setForeground(new java.awt.Color(51, 51, 51));
+        TelaBuscaClientes.setForeground(new java.awt.Color(51, 51, 51));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -518,24 +518,24 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap(69, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout TelaBuscaClientesLayout = new javax.swing.GroupLayout(TelaBuscaClientes);
+        TelaBuscaClientes.setLayout(TelaBuscaClientesLayout);
+        TelaBuscaClientesLayout.setHorizontalGroup(
+            TelaBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TelaBuscaClientesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        TelaBuscaClientesLayout.setVerticalGroup(
+            TelaBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TelaBuscaClientesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel6.add(jPanel3, "card4");
+        jPanel6.add(TelaBuscaClientes, "card4");
 
         jPanel14.setBackground(new java.awt.Color(51, 51, 51));
         jPanel14.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -700,18 +700,18 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+        javax.swing.GroupLayout GerenciarTestesLayout = new javax.swing.GroupLayout(GerenciarTestes);
+        GerenciarTestes.setLayout(GerenciarTestesLayout);
+        GerenciarTestesLayout.setHorizontalGroup(
+            GerenciarTestesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GerenciarTestesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+        GerenciarTestesLayout.setVerticalGroup(
+            GerenciarTestesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GerenciarTestesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -720,10 +720,10 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel14.getAccessibleContext().setAccessibleName("");
         jPanel14.getAccessibleContext().setAccessibleDescription("");
 
-        jPanel6.add(jPanel13, "card13");
+        jPanel6.add(GerenciarTestes, "card13");
 
-        jPanel11.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        MenuCliente.setBackground(new java.awt.Color(204, 204, 204));
+        MenuCliente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnNovoClinente.setText("Novo Cliente");
         btnNovoClinente.addActionListener(new java.awt.event.ActionListener() {
@@ -754,31 +754,31 @@ public class PrincipalView extends javax.swing.JFrame {
 
         btnBuscarCliente3.setText("Agendar Consulta");
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        javax.swing.GroupLayout MenuClienteLayout = new javax.swing.GroupLayout(MenuCliente);
+        MenuCliente.setLayout(MenuClienteLayout);
+        MenuClienteLayout.setHorizontalGroup(
+            MenuClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuClienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBuscarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                     .addComponent(btnNovoClinente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAgendar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBuscarCliente2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuClienteLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
-            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel11Layout.createSequentialGroup()
+            .addGroup(MenuClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuClienteLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(btnBuscarCliente3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        MenuClienteLayout.setVerticalGroup(
+            MenuClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuClienteLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -790,8 +790,8 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(btnBuscarCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81))
-            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+            .addGroup(MenuClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuClienteLayout.createSequentialGroup()
                     .addContainerGap(289, Short.MAX_VALUE)
                     .addComponent(btnBuscarCliente3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(159, 159, 159)))
@@ -803,7 +803,7 @@ public class PrincipalView extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(MenuCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1041, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -813,7 +813,7 @@ public class PrincipalView extends javax.swing.JFrame {
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(MenuCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -955,6 +955,9 @@ public class PrincipalView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel GerenciarTestes;
+    private javax.swing.JPanel MenuCliente;
+    private javax.swing.JPanel TelaBuscaClientes;
     private javax.swing.JTextField TxtDataAgenda;
     private javax.swing.JTextField TxtNomeProfessor;
     private javax.swing.JButton btnAgendar;
@@ -995,15 +998,12 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

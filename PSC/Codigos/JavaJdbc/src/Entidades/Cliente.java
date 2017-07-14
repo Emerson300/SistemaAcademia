@@ -129,11 +129,4 @@ public class Cliente {
         this.altura = altura;
     }
    
-    
-
-//    public void add(Cliente cliente) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-    
-    
 }

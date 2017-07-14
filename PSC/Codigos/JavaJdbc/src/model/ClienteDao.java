@@ -46,7 +46,7 @@ public class ClienteDao{
             stmt.executeUpdate();
         
         } catch (SQLException e) {
-              JOptionPane.showMessageDialog(null, "erro dao");
+              JOptionPane.showMessageDialog(null, "Erro ao Cadastrar Cliente");
         }finally{
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -91,8 +91,27 @@ public class ClienteDao{
         return clientes;
         
     }
+    
+    public void  Delete(Cliente cliente){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt =null;
+         
+        try {
+             stmt = con.prepareStatement("Delete * from Cliente where id = ?");
+             stmt.setInt(1, cliente.getId());
+             
+             stmt.executeUpdate();
+             JOptionPane.showMessageDialog(null,"Cliente Excluido com Sucesso!");
+             
+            
+        } catch (Exception e) {
+               JOptionPane.showMessageDialog(null,"Erro ao Excluir Cliente!"+e);
+        }
+        finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+    
 }
-
-
-
-
