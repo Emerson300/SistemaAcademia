@@ -62,7 +62,7 @@ public class ClienteDao{
         List <Cliente> clientes =new ArrayList();
         
         try {
-            stmt = con.prepareStatement("Select *from cliente");
+            stmt = con.prepareStatement("Select * from cliente");
             rs = stmt.executeQuery();
             
             while(rs.next()){
