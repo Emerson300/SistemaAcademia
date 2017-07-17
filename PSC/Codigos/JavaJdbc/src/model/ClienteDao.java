@@ -29,18 +29,18 @@ public class ClienteDao{
         PreparedStatement stmt = null;
     
         try {
-            stmt = con.prepareStatement("insert into cliente (nome,idade,telefone,sexo,peso,altura,estado,cidade,bairro,numero,rua)values(?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("insert into cliente (nome,idade,sexo,altura,peso,estado,cidade,bairro,numero,rua,telefone)values(?,?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, cliente.getNome());
             stmt.setInt(2, cliente.getIdade());
-            stmt.setString(3, cliente.getTelefone());
-            stmt.setString(4, cliente.getSexo());
-            stmt.setFloat(5, cliente.getPeso());
-            stmt.setFloat(6, cliente.getAltura());
-            stmt.setString(7, cliente.getEstado());
-            stmt.setString(8, cliente.getCidade());
-            stmt.setString(9, cliente.getBairro());
-            stmt.setInt(10,  cliente.getNumero());
-            stmt.setString(11, cliente.getRua());
+            stmt.setString(3, cliente.getSexo());
+            stmt.setFloat(4, cliente.getPeso());
+            stmt.setFloat(5, cliente.getAltura());
+            stmt.setString(6, cliente.getEstado());
+            stmt.setString(7, cliente.getCidade());
+            stmt.setString(8, cliente.getBairro());
+            stmt.setInt(9, cliente.getNumero());
+            stmt.setString(10, cliente.getRua());
+            stmt.setString(11, cliente.getTelefone());
             
             
             stmt.executeUpdate();
@@ -70,7 +70,6 @@ public class ClienteDao{
                 
                 cliente.setNome(rs.getString("nome"));
                 cliente.setIdade(rs.getInt("idade"));
-                cliente.setTelefone(rs.getString("telefone"));
                 cliente.setSexo(rs.getString("sexo"));
                 cliente.setPeso(rs.getFloat("peso"));
                 cliente.setAltura(rs.getFloat("altura"));
@@ -79,7 +78,8 @@ public class ClienteDao{
                 cliente.setBairro(rs.getString("bairro"));
                 cliente.setNumero(rs.getInt("numero"));
                 cliente.setRua(rs.getString("rua"));
-            
+                cliente.setTelefone(rs.getString("telefone"));
+                
                 clientes.add(cliente);
                 
             }
