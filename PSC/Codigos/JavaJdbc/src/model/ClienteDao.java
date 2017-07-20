@@ -68,6 +68,7 @@ public class ClienteDao{
             while(rs.next()){
                 Cliente cliente = new Cliente();
                 
+                cliente.setId(rs.getInt("id"));
                 cliente.setNome(rs.getString("nome"));
                 cliente.setIdade(rs.getInt("idade"));
                 cliente.setSexo(rs.getString("sexo"));
@@ -92,13 +93,48 @@ public class ClienteDao{
         
     }
     
+     public void  Update(Cliente cliente){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt =null;
+         
+        try {
+            stmt = con.prepareStatement("Update cliente Set nome=?,idade=?,sexo=?,altura=?,peso=?,estado=?,cidade=?,bairro=?,numero=?,rua=?,telefone=? Where id = ?");
+            stmt.setString(1, cliente.getNome());
+            stmt.setInt(2, cliente.getIdade());
+            stmt.setString(3, cliente.getSexo());
+            stmt.setFloat(4, cliente.getPeso());
+            stmt.setFloat(5, cliente.getAltura());
+            stmt.setString(6, cliente.getEstado());
+            stmt.setString(7, cliente.getCidade());
+            stmt.setString(8, cliente.getBairro());
+            stmt.setInt(9, cliente.getNumero());
+            stmt.setString(10, cliente.getRua());
+            stmt.setString(11, cliente.getTelefone());
+            stmt.setInt(12, cliente.getId());
+             
+             stmt.executeUpdate();
+             JOptionPane.showMessageDialog(null,"Dados Atualizado com Sucesso!");
+             
+            
+        } catch (Exception e) {
+               JOptionPane.showMessageDialog(null,"Erro ao Atualizar Dados!"+e);
+        }
+        finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+   
+    
+    
+    
     public void  Delete(Cliente cliente){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt =null;
          
         try {
-             stmt = con.prepareStatement("Delete * from Cliente where id = ?");
+             stmt = con.prepareStatement("Delete from cliente where id = ?");
              stmt.setInt(1, cliente.getId());
              
              stmt.executeUpdate();
