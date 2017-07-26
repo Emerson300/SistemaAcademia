@@ -29,18 +29,17 @@ public class ClienteDao{
         PreparedStatement stmt = null;
     
         try {
-            stmt = con.prepareStatement("insert into cliente (nome,idade,sexo,altura,peso,estado,cidade,bairro,numero,rua,telefone)values(?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("insert into cliente (nome,idade,sexo,estado,cidade,bairro,numero,rua,telefone)values(?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, cliente.getNome());
             stmt.setInt(2, cliente.getIdade());
             stmt.setString(3, cliente.getSexo());
-            stmt.setFloat(4, cliente.getPeso());
-            stmt.setFloat(5, cliente.getAltura());
-            stmt.setString(6, cliente.getEstado());
-            stmt.setString(7, cliente.getCidade());
-            stmt.setString(8, cliente.getBairro());
-            stmt.setInt(9, cliente.getNumero());
-            stmt.setString(10, cliente.getRua());
-            stmt.setString(11, cliente.getTelefone());
+           // stmt.setDate(4, cliente.getDataNasc());
+            stmt.setString(4, cliente.getEstado());
+            stmt.setString(5, cliente.getCidade());
+            stmt.setString(6, cliente.getBairro());
+            stmt.setString(7, cliente.getNumero());
+            stmt.setString(8, cliente.getRua());
+            stmt.setString(9, cliente.getTelefone());
             
             
             stmt.executeUpdate();
@@ -72,14 +71,13 @@ public class ClienteDao{
                 cliente.setNome(rs.getString("nome"));
                 cliente.setIdade(rs.getInt("idade"));
                 cliente.setSexo(rs.getString("sexo"));
-                cliente.setPeso(rs.getFloat("peso"));
-                cliente.setAltura(rs.getFloat("altura"));
+                //cliente.setDataNasc(rs.getDate("dataNasc"));
                 cliente.setEstado(rs.getString("estado"));
                 cliente.setCidade(rs.getString("cidade"));
                 cliente.setBairro(rs.getString("bairro"));
-                cliente.setNumero(rs.getInt("numero"));
+                cliente.setNumero(rs.getString("numero"));
                 cliente.setRua(rs.getString("rua"));
-                cliente.setTelefone(rs.getString("telefone"));
+                //cliente.setTelefone(rs.getString("telefone"));
                 
                 clientes.add(cliente);
                 
@@ -99,19 +97,18 @@ public class ClienteDao{
         PreparedStatement stmt =null;
          
         try {
-            stmt = con.prepareStatement("Update cliente Set nome=?,idade=?,sexo=?,altura=?,peso=?,estado=?,cidade=?,bairro=?,numero=?,rua=?,telefone=? Where id = ?");
+            stmt = con.prepareStatement("Update cliente Set nome=?,idade=?,sexo=?,estado=?,cidade=?,bairro=?,numero=?,rua=?,telefone=? Where id = ?");
             stmt.setString(1, cliente.getNome());
             stmt.setInt(2, cliente.getIdade());
             stmt.setString(3, cliente.getSexo());
-            stmt.setFloat(4, cliente.getPeso());
-            stmt.setFloat(5, cliente.getAltura());
-            stmt.setString(6, cliente.getEstado());
-            stmt.setString(7, cliente.getCidade());
-            stmt.setString(8, cliente.getBairro());
-            stmt.setInt(9, cliente.getNumero());
-            stmt.setString(10, cliente.getRua());
-            stmt.setString(11, cliente.getTelefone());
-            stmt.setInt(12, cliente.getId());
+           // stmt.setDate(4, cliente.getDataNasc());
+            stmt.setString(4, cliente.getEstado());
+            stmt.setString(5, cliente.getCidade());
+            stmt.setString(6, cliente.getBairro());
+            stmt.setString(7, cliente.getNumero());
+            stmt.setString(8, cliente.getRua());
+            stmt.setString(9, cliente.getTelefone());
+            stmt.setInt(10, cliente.getId());
              
              stmt.executeUpdate();
              JOptionPane.showMessageDialog(null,"Dados Atualizado com Sucesso!");
@@ -125,9 +122,6 @@ public class ClienteDao{
         }
     }
    
-    
-    
-    
     public void  Delete(Cliente cliente){
         
         Connection con = ConnectionFactory.getConnection();

@@ -5,20 +5,22 @@
  */
 package Entidades;
 
+import java.sql.Date;
+
 /**
  *
  * @author emerson
  */
 public class Cliente {
-   private int id,idade,numero; 
-   private String nome,estado,cidade,rua,bairro,telefone,sexo; 
-   private float peso,altura; 
-
-    public Cliente() {
+   private int id,idade; 
+   private String nome,estado,cidade,rua,bairro,telefone,sexo,numero;
+   private Date dataNasc;
+    
+   public Cliente() {
         
-    }
+   }
 
-    public Cliente(int id, int idade, int numero, String nome, String estado, String cidade, String rua, String bairro, String telefone, String sexo, float peso, float altura) {
+    public Cliente(int id, int idade, String numero, String nome, String estado, String cidade, String rua, String bairro, String telefone, String sexo, Date dataNasc) {
         this.id = id;
         this.idade = idade;
         this.numero = numero;
@@ -29,8 +31,7 @@ public class Cliente {
         this.bairro = bairro;
         this.telefone = telefone;
         this.sexo = sexo;
-        this.peso = peso;
-        this.altura = altura;
+        this.dataNasc = dataNasc;
     }
 
     public int getId() {
@@ -49,11 +50,11 @@ public class Cliente {
         this.idade = idade;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -113,20 +114,18 @@ public class Cliente {
         this.sexo = sexo;
     }
 
-    public float getPeso() {
-        return peso;
+    public Date getDataNasc() {
+        return dataNasc;
     }
 
-    public void setPeso(float peso) {
-        this.peso = peso;
-    }
-
-    public float getAltura() {
-        return altura;
-    }
-
-    public void setAltura(float altura) {
-        this.altura = altura;
+    public void setDataNasc(Date dataNasc) {
+        this.dataNasc = dataNasc;
     }
    
+   
+
+    
+    
+
+    
 }
