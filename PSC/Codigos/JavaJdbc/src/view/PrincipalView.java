@@ -2033,15 +2033,15 @@ public class PrincipalView extends javax.swing.JFrame {
             
             fDao.Delete(f);
             
-             txtNome.setText("");
+             txtNomeFuncionario.setText("");
              txtCpfFunc.setText("");
              txtRgFuncionario.setText("");
-             txtEstado.setText("");
-             txtRua.setText("");
-             txtNumero.setText("");
-             txtBairro.setText("");
-             txtCidade.setText("");
-             txtTelefone.setText("");
+             txtEstadoFunc.setText("");
+             txtRuaFunc.setText("");
+             txtNumeroFunc.setText("");
+             txtBairroFunc.setText("");
+             txtCidadeFunc.setText("");
+             txtTelefoneFunc.setText("");
              txtSalarioFunc.setText("");
             
             readJTableFunc();
