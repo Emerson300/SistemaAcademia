@@ -109,7 +109,8 @@ public class FuncionarioDao {
             stmt.setString(9, funcionario.getTelefone());
             stmt.setFloat(10, funcionario.getSalario());
             stmt.setInt(11, funcionario.getId());
-             
+            
+            System.out.println(""+funcionario.getId());
              stmt.executeUpdate();
              JOptionPane.showMessageDialog(null,"Dados Atualizados com Sucesso!");
              
