@@ -5,7 +5,6 @@
  */
 package model;
 
-import Entidades.Cliente;
 import Entidades.Funcionario;
 import connection.ConnectionFactory;
 import java.sql.Connection;
@@ -77,7 +76,8 @@ public class FuncionarioDao {
                 funcionario.setBairro(rs.getString("bairro"));
                 funcionario.setNumero(rs.getString("numero"));
                 funcionario.setRua(rs.getString("rua"));
-                funcionario.setSalario(rs.getFloat("telefone"));
+                funcionario.setTelefone(rs.getString("telefone"));
+                funcionario.setSalario(rs.getFloat("salario"));
                 
                 funcionarios.add(funcionario);
                 
@@ -107,11 +107,11 @@ public class FuncionarioDao {
             stmt.setString(7, funcionario.getNumero());
             stmt.setString(8, funcionario.getRua());
             stmt.setString(9, funcionario.getTelefone());
-            stmt.setFloat(9, funcionario.getSalario());
-            stmt.setInt(10, funcionario.getId());
+            stmt.setFloat(10, funcionario.getSalario());
+            stmt.setInt(11, funcionario.getId());
              
              stmt.executeUpdate();
-             JOptionPane.showMessageDialog(null,"Dados Atualizado com Sucesso!");
+             JOptionPane.showMessageDialog(null,"Dados Atualizados com Sucesso!");
              
             
         } catch (Exception e) {
