@@ -8,6 +8,8 @@ package view;
 import Entidades.Cliente;
 import Entidades.Funcionario;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -27,7 +29,7 @@ public class PrincipalView extends javax.swing.JFrame {
         initComponents();
         DefaultTableModel modelo =  (DefaultTableModel) jtClientes.getModel();
         jtClientes.setRowSorter(new TableRowSorter(modelo));
-               txtId.show(false);
+        txtId.show(false);
 
     }
     
@@ -420,15 +422,18 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel10.setBackground(new java.awt.Color(102, 102, 102));
         jPanel10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel10.setForeground(new java.awt.Color(51, 51, 51));
 
         btnEditar.setBackground(new java.awt.Color(255, 255, 255));
         btnEditar.setForeground(new java.awt.Color(0, 0, 0));
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconPencil.png"))); // NOI18N
         btnEditar.setText("Editar");
 
         btnSalvar.setBackground(new java.awt.Color(255, 255, 255));
         btnSalvar.setForeground(new java.awt.Color(0, 0, 0));
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconSave.png"))); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -438,6 +443,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         btnLimpar.setBackground(new java.awt.Color(255, 255, 255));
         btnLimpar.setForeground(new java.awt.Color(0, 0, 0));
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/1469681932_edit-clear.png"))); // NOI18N
         btnLimpar.setText("Limpar");
         btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -450,37 +456,34 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(7, 7, 7)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap(19, Short.MAX_VALUE)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(104, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(92, 92, 92))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,7 +521,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
 
         jPanel6.add(FormularioClientes, "card2");
@@ -612,12 +615,12 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
         jtClientes.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jtClientesAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jtClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1287,6 +1290,7 @@ public class PrincipalView extends javax.swing.JFrame {
         MenuCliente.setBackground(new java.awt.Color(204, 204, 204));
         MenuCliente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnNovoClinente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconAdd.png"))); // NOI18N
         btnNovoClinente.setText("Novo Cliente");
         btnNovoClinente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1294,6 +1298,7 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
 
+        btnBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/buscar.png"))); // NOI18N
         btnBuscarCliente.setText("Buscar Clientes");
         btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1497,14 +1502,11 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtRgFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel36))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel25Layout.createSequentialGroup()
-                                .addComponent(jLabel35)
-                                .addGap(26, 26, 26))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
-                                .addComponent(txtTelefoneFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTelefoneFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel35))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel42)
                             .addComponent(txtSalarioFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1622,6 +1624,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel27.setBackground(new java.awt.Color(102, 102, 102));
         jPanel27.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnSalvarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconSave.png"))); // NOI18N
         btnSalvarFuncionario.setText("Salvar");
         btnSalvarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1629,8 +1632,15 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
 
+        btnBuscarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/buscar.png"))); // NOI18N
         btnBuscarFuncionario.setText("Buscar");
+        btnBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarFuncionarioActionPerformed(evt);
+            }
+        });
 
+        btnEditarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconPencil.png"))); // NOI18N
         btnEditarFuncionario.setText("Editar");
         btnEditarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1638,6 +1648,7 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
 
+        btnExcluirFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconClose.png"))); // NOI18N
         btnExcluirFuncionario.setText("Excluir");
         btnExcluirFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1670,10 +1681,10 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel29Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEditarFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(btnEditarFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSalvarFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnExcluirFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnBuscarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtBuscaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel43)))
@@ -1777,7 +1788,7 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         telaCliente.addTab("Funcionários", jPanel7);
@@ -1906,7 +1917,7 @@ public class PrincipalView extends javax.swing.JFrame {
             cliente.setRua(txtRua.getText());
             cliente.setNumero(txtNumero.getText());
             cliente.setTelefone(txtTelefone.getText());
-           
+            
             clientedao.Create(cliente);
           
             JOptionPane.showMessageDialog(rootPane,"Salvo com Sucesso");
@@ -2083,6 +2094,10 @@ public class PrincipalView extends javax.swing.JFrame {
     private void txtIdComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_txtIdComponentShown
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdComponentShown
+
+    private void btnBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFuncionarioActionPerformed
+         
+    }//GEN-LAST:event_btnBuscarFuncionarioActionPerformed
 
     private Funcionario extraiLinhaTblFuncionario(){
          Funcionario funcionario = new Funcionario();
