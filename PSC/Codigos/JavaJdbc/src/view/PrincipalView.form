@@ -96,6 +96,9 @@
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Clientes">
                     <Property name="tabTitle" type="java.lang.String" value="Clientes"/>
+                    <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/images/1468397580_user1.png"/>
+                    </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -183,7 +186,7 @@
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="169" max="32767" attributes="0"/>
+                                  <EmptySpace pref="165" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -783,11 +786,11 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="79" max="32767" attributes="0"/>
+                                      <EmptySpace pref="78" max="32767" attributes="0"/>
                                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="87" max="32767" attributes="0"/>
+                                      <EmptySpace pref="85" max="32767" attributes="0"/>
                                       <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                                      <EmptySpace pref="15" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1090,7 +1093,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane3" pref="438" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane3" pref="425" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1310,21 +1313,33 @@
                                 </Container>
                                 <Component class="javax.swing.JButton" name="jButton1">
                                   <Properties>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/images/iconSave.png"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Salvar"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JButton" name="jButton2">
                                   <Properties>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/images/iconPencil.png"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Editar"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JButton" name="jButton3">
                                   <Properties>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/images/iconSearch.png"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Buscar"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JButton" name="btnExcluirConsulta1">
                                   <Properties>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/images/iconClose.png"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Excluir"/>
                                   </Properties>
                                 </Component>
@@ -1731,7 +1746,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane5" pref="439" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane5" pref="435" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -2232,6 +2247,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnAgendar">
                       <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/notes_2_43442.png"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Agendar Teste"/>
                       </Properties>
                       <Events>
@@ -2240,6 +2258,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnTreinos">
                       <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/olympics_sport_weight_weightlifting_2257.png"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Treinos"/>
                       </Properties>
                       <Events>
@@ -2248,6 +2269,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnConsultas">
                       <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/head_medical_man_avatar_person_2837.png"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Agendar Consulta"/>
                       </Properties>
                       <Events>
@@ -2263,6 +2287,9 @@
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Funcion&#xe1;rios">
                     <Property name="tabTitle" type="java.lang.String" value="Funcion&#xe1;rios"/>
+                    <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/images/caucasian_head_man_person_people_avatar_2859.png"/>
+                    </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -2278,7 +2305,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel23" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="95" max="32767" attributes="0"/>
+                          <EmptySpace pref="91" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3009,6 +3036,9 @@
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Mensalidades">
                     <Property name="tabTitle" type="java.lang.String" value="Mensalidades"/>
+                    <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/images/money_dollar_cash_coins_riches_wealth_icon-icons.com_53585.png"/>
+                    </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -3060,7 +3090,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="746" max="32767" attributes="0"/>
+                              <EmptySpace pref="742" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>

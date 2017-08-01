@@ -521,7 +521,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         jPanel6.add(FormularioClientes, "card2");
@@ -615,12 +615,12 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
         jtClientes.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jtClientesAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jtClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -667,11 +667,11 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout TelaBuscaClientesLayout = new javax.swing.GroupLayout(TelaBuscaClientes);
@@ -777,12 +777,16 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconSave.png"))); // NOI18N
         jButton1.setText("Salvar");
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconPencil.png"))); // NOI18N
         jButton2.setText("Editar");
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconSearch.png"))); // NOI18N
         jButton3.setText("Buscar");
 
+        btnExcluirConsulta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconClose.png"))); // NOI18N
         btnExcluirConsulta1.setText("Excluir");
 
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
@@ -869,7 +873,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1055,7 +1059,7 @@ public class PrincipalView extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1310,6 +1314,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Menu");
 
+        btnAgendar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/notes_2_43442.png"))); // NOI18N
         btnAgendar.setText("Agendar Teste");
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1317,6 +1322,7 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
 
+        btnTreinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/olympics_sport_weight_weightlifting_2257.png"))); // NOI18N
         btnTreinos.setText("Treinos");
         btnTreinos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1324,6 +1330,7 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
 
+        btnConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/head_medical_man_avatar_person_2837.png"))); // NOI18N
         btnConsultas.setText("Agendar Consulta");
         btnConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1396,7 +1403,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        telaCliente.addTab("Clientes", jPanel2);
+        telaCliente.addTab("Clientes", new javax.swing.ImageIcon(getClass().getResource("/images/1468397580_user1.png")), jPanel2); // NOI18N
 
         jPanel23.setBackground(new java.awt.Color(51, 51, 51));
         jPanel23.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1788,10 +1795,10 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
-        telaCliente.addTab("Funcionários", jPanel7);
+        telaCliente.addTab("Funcionários", new javax.swing.ImageIcon(getClass().getResource("/images/caucasian_head_man_person_people_avatar_2859.png")), jPanel7); // NOI18N
 
         jPanel31.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -1828,7 +1835,7 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel31Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel44)
-                .addContainerGap(746, Short.MAX_VALUE))
+                .addContainerGap(742, Short.MAX_VALUE))
             .addGroup(jPanel31Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1852,7 +1859,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        telaCliente.addTab("Mensalidades", jPanel30);
+        telaCliente.addTab("Mensalidades", new javax.swing.ImageIcon(getClass().getResource("/images/money_dollar_cash_coins_riches_wealth_icon-icons.com_53585.png")), jPanel30); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
