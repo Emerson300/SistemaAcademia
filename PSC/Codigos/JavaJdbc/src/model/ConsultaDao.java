@@ -29,12 +29,12 @@ public class ConsultaDao {
         PreparedStatement stmt = null;
     
         try {
-            stmt = con.prepareStatement("insert into consulta (nomeCliente,nomeFuncionario,datas,obs)values(?,?,?,?)");
+            stmt = con.prepareStatement("insert into consulta (nomeCliente,nomeFuncionario,datas,horario,obs)values(?,?,?,?,?)");
             stmt.setString(1, consulta.getNomeCliente());
             stmt.setString(2, consulta.getNomeFuncionario());
             stmt.setDate(3, consulta.getDatas());
-            //stmt.setTime(4, consulta.getHorario());
-            stmt.setString(4, consulta.getObs());
+            stmt.setTime(4, consulta.getHorario());
+            stmt.setString(5, consulta.getObs());
             
             stmt.executeUpdate();
         
@@ -65,7 +65,7 @@ public class ConsultaDao {
                 consulta.setNomeCliente(rs.getString("nomeCliente"));
                 consulta.setNomeFuncionario(rs.getString("nomeFuncionario"));
                 consulta.setDatas(rs.getDate("datas"));
-               // consulta.setHorario(rs.getTime("horario"));
+                consulta.setHorario(rs.getTime("horario"));
                 consulta.setObs(rs.getString("obs"));
                 
                 consultas.add(consulta);
@@ -86,14 +86,14 @@ public class ConsultaDao {
         PreparedStatement stmt =null;
          
         try {
-            stmt = con.prepareStatement("Update consulta Set nomeCliente=?,nomeFuncionario=?,obs=? Where id = ?");
+            stmt = con.prepareStatement("Update consulta Set nomeCliente=?,nomeFuncionario=?,datas=?,horario=?,obs=? Where id = ?");
             stmt.setString(1, consulta.getNomeCliente());
             stmt.setString(2, consulta.getNomeFuncionario());
             stmt.setDate(3, consulta.getDatas());
-           // stmt.setTime(4, consulta.getHorario());
-            stmt.setString(4, consulta.getObs());
+            stmt.setTime(4, consulta.getHorario());
+            stmt.setString(5, consulta.getObs());
             
-            stmt.setInt(5, consulta.getId());
+            stmt.setInt(6, consulta.getId());
             
              stmt.executeUpdate();
              JOptionPane.showMessageDialog(null,"Dados Atualizados com Sucesso!");

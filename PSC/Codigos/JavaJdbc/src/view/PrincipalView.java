@@ -33,6 +33,9 @@ public class PrincipalView extends javax.swing.JFrame {
     /**
      * Creates new form PrincipalView
      */
+    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+            
     public PrincipalView() {
         initComponents();
         DefaultTableModel modelo =  (DefaultTableModel) jtClientes.getModel();
@@ -128,7 +131,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         txtMedicoConsulta = new javax.swing.JTextField();
         txtNomeConsuta = new javax.swing.JTextField();
-        txtHorarioConsulta = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtAreaConsulta = new javax.swing.JTextArea();
@@ -140,6 +142,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnBuscarConsultas = new javax.swing.JButton();
         txtDataConsulta = new javax.swing.JFormattedTextField();
         txtIdConsulta = new javax.swing.JTextField();
+        txtHorarioConsulta = new javax.swing.JFormattedTextField();
         jLabel22 = new javax.swing.JLabel();
         jPanel19 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -975,6 +978,12 @@ public class PrincipalView extends javax.swing.JFrame {
         txtIdConsulta.setMinimumSize(new java.awt.Dimension(0, 0));
         txtIdConsulta.setPreferredSize(new java.awt.Dimension(0, 0));
 
+        try {
+            txtHorarioConsulta.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
@@ -985,10 +994,10 @@ public class PrincipalView extends javax.swing.JFrame {
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtHorarioConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtHorarioConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addComponent(txtNomeConsuta, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addComponent(jLabel24)
@@ -1044,12 +1053,12 @@ public class PrincipalView extends javax.swing.JFrame {
                             .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel26)
                                 .addComponent(txtHorarioConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(25, 25, 25)
+                            .addGap(27, 27, 27)
                             .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel25)
                                 .addComponent(txtDataConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(txtIdConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExcluirConsulta)
                     .addComponent(btnSalvarConsulta)
@@ -1122,7 +1131,7 @@ public class PrincipalView extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2079,6 +2088,7 @@ public class PrincipalView extends javax.swing.JFrame {
             
             txtNome.setText("");
             cmbSexo.setSelectedItem("");
+            txtData.setText("");
             txtEstado.setText("");
             txtCidade.setText("");
             txtBairro.setText("");
@@ -2220,14 +2230,17 @@ public class PrincipalView extends javax.swing.JFrame {
         Consulta consulta = new Consulta();
         ConsultaDao consultaDao = new ConsultaDao();
         SimpleDateFormat formate = new SimpleDateFormat("dd/MM/yyyy");
-        String data;
+        SimpleDateFormat form = new SimpleDateFormat("hh:mm:ss");
+        
+        String data,hr;
         try {
             
             consulta.setNomeCliente(txtNomeConsuta.getText());
             consulta.setNomeFuncionario(txtMedicoConsulta.getText());
             data=txtDataConsulta.getText();
             consulta.setDatas( new java.sql.Date( formate.parse(data).getTime()));
-           // consulta.setHorario(txtHorarioConsulta.getText());
+            hr=txtHorarioConsulta.getText();
+            consulta.setHorario(new java.sql.Time(form.parse(hr).getTime()));
             consulta.setObs(txtAreaConsulta.getText());
             
             
@@ -2272,24 +2285,36 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirConsultaActionPerformed
 
     private void btnEditarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarConsultaActionPerformed
-            if (jtTabelaConsulta.getSelectedRow() != -1) {
+           
+        if (jtTabelaConsulta.getSelectedRow() != -1) {
 
-            Consulta consulta = new Consulta();
-            ConsultaDao consultaDao = new ConsultaDao();
-
-            consulta.setId(Integer.parseInt(txtIdConsulta.getText()));
-            consulta.setNomeCliente(txtNomeConsuta.getText());
-            consulta.setNomeFuncionario(txtMedicoConsulta.getText());
-            //consulta.setDatas(txtDataConsulta.getText());
-            //consulta.setHorario(txtHorarioConsulta.getText());
-            consulta.setObs(txtAreaConsulta.getText());
+            try {
+                Consulta consulta = new Consulta();
+                ConsultaDao consultaDao = new ConsultaDao();
+                SimpleDateFormat form = new SimpleDateFormat("hh:mm:ss");
+                SimpleDateFormat formate = new SimpleDateFormat("dd/MM/yyyy");
+                String dat,hr;
             
-            consultaDao.Update(consulta);
-            limparCamposFormularioConsulta();
-            readJTableConsulta();
+                consulta.setId(Integer.parseInt(txtIdConsulta.getText()));
+                consulta.setNomeCliente(txtNomeConsuta.getText());
+                consulta.setNomeFuncionario(txtMedicoConsulta.getText());
+                dat=txtDataConsulta.getText();
+                consulta.setDatas(new java.sql.Date( formate.parse(dat).getTime()));
+                hr=txtHorarioConsulta.getText();
+                consulta.setHorario(new java.sql.Time(form.parse(hr).getTime()));
+                consulta.setObs(txtAreaConsulta.getText());
+            
+                consultaDao.Update(consulta);
+                limparCamposFormularioConsulta();
+                readJTableConsulta();
+
+            } catch (ParseException ex) {
+                Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
         }
         else
-            JOptionPane.showMessageDialog(rootPane, "Selecione uma linha para editar os Dados");
+            JOptionPane.showMessageDialog(rootPane, "Selecione uma Linha para Editar os Dados");
 
     }//GEN-LAST:event_btnEditarConsultaActionPerformed
 
@@ -2302,9 +2327,9 @@ public class PrincipalView extends javax.swing.JFrame {
        
            txtIdConsulta.setText(jtTabelaConsulta.getValueAt(jtTabelaConsulta.getSelectedRow(), 0).toString());           
            txtNomeConsuta.setText(jtTabelaConsulta.getValueAt(jtTabelaConsulta.getSelectedRow(), 1).toString());           
-           txtNomeFuncionario.setText(jtTabelaConsulta.getValueAt(jtTabelaConsulta.getSelectedRow(), 2).toString());           
-           //txtDataConsulta.setText(jtTabelaConsulta.getValueAt(jtTabelaConsulta.getSelectedRow(), 3).toString());           
-          // txtHorarioConsulta.setText(jtTabelaConsulta.getValueAt(jtTabelaConsulta.getSelectedRow(), 4).toString());           
+           txtMedicoConsulta.setText(jtTabelaConsulta.getValueAt(jtTabelaConsulta.getSelectedRow(), 2).toString());           
+           txtDataConsulta.setText(jtTabelaConsulta.getValueAt(jtTabelaConsulta.getSelectedRow(), 3).toString());           
+           txtHorarioConsulta.setText(jtTabelaConsulta.getValueAt(jtTabelaConsulta.getSelectedRow(), 4).toString());           
            txtAreaConsulta.setText(jtTabelaConsulta.getValueAt(jtTabelaConsulta.getSelectedRow(), 5).toString());           
           
         }
@@ -2588,7 +2613,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtDataConsulta;
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtEstadoFunc;
-    private javax.swing.JTextField txtHorarioConsulta;
+    private javax.swing.JFormattedTextField txtHorarioConsulta;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtIdConsulta;
     private javax.swing.JTextField txtIdTreino;
@@ -2637,10 +2662,10 @@ public class PrincipalView extends javax.swing.JFrame {
     }
     private void limparCamposFormularioConsulta() {
         txtId.setText("");
-        txtMedicoConsulta.setText("");
         txtNomeConsuta.setText("");
-        //txtDataConsulta.setText("");
-        //txtHorarioConsulta.setText("");
+        txtMedicoConsulta.setText("");
+        txtDataConsulta.setText("");
+        txtHorarioConsulta.setText("");
         txtAreaConsulta.setText("");
     
     }
@@ -2662,7 +2687,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 c.getId(),
                 c.getNome(),
                 c.getSexo(),
-                c.getDataNasc(),
+                df.format(c.getDataNasc()),
                 c.getEstado(),
                 c.getCidade(),
                 c.getBairro(),
@@ -2708,7 +2733,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 c.getId(),
                 c.getNomeCliente(),
                 c.getNomeFuncionario(),
-                c.getDatas(),
+                df.format(c.getDatas()),
                 c.getHorario(),
                 c.getObs(),
                 
