@@ -29,16 +29,16 @@ public class ClienteDao{
         PreparedStatement stmt = null;
     
         try {
-            stmt = con.prepareStatement("insert into cliente (nome,sexo,estado,cidade,bairro,numero,rua,telefone)values(?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("insert into cliente (nome,sexo,dataNasc,estado,cidade,bairro,numero,rua)values(?,?,?,?,?,?,?,?)");
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getSexo());
-           // stmt.setDate(4, cliente.getDataNasc());
-            stmt.setString(3, cliente.getEstado());
-            stmt.setString(4, cliente.getCidade());
-            stmt.setString(5, cliente.getBairro());
-            stmt.setString(6, cliente.getNumero());
-            stmt.setString(7, cliente.getRua());
-            stmt.setString(8, cliente.getTelefone());
+            stmt.setDate(3, cliente.getDataNasc());
+            stmt.setString(4, cliente.getEstado());
+            stmt.setString(5, cliente.getCidade());
+            stmt.setString(6, cliente.getBairro());
+            stmt.setString(7, cliente.getNumero());
+            stmt.setString(8, cliente.getRua());
+            //stmt.setString(9, cliente.getTelefone());
             
             
             stmt.executeUpdate();
@@ -69,7 +69,7 @@ public class ClienteDao{
                 cliente.setId(rs.getInt("id"));
                 cliente.setNome(rs.getString("nome"));
                 cliente.setSexo(rs.getString("sexo"));
-                //cliente.setDataNasc(rs.getDate("dataNasc"));
+                cliente.setDataNasc(rs.getDate("dataNasc"));
                 cliente.setEstado(rs.getString("estado"));
                 cliente.setCidade(rs.getString("cidade"));
                 cliente.setBairro(rs.getString("bairro"));
@@ -95,16 +95,16 @@ public class ClienteDao{
         PreparedStatement stmt =null;
          
         try {
-            stmt = con.prepareStatement("Update cliente Set nome=?,sexo=?,estado=?,cidade=?,bairro=?,numero=?,rua=?,telefone=? Where id = ?");
+            stmt = con.prepareStatement("Update cliente Set nome=?,sexo=?,dataNasc=?,estado=?,cidade=?,bairro=?,numero=?,rua=? Where id = ?");
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getSexo());
-           // stmt.setDate(4, cliente.getDataNasc());
-            stmt.setString(3, cliente.getEstado());
-            stmt.setString(4, cliente.getCidade());
-            stmt.setString(5, cliente.getBairro());
-            stmt.setString(6, cliente.getNumero());
-            stmt.setString(7, cliente.getRua());
-            stmt.setString(8, cliente.getTelefone());
+            stmt.setDate(3, cliente.getDataNasc());
+            stmt.setString(4, cliente.getEstado());
+            stmt.setString(5, cliente.getCidade());
+            stmt.setString(6, cliente.getBairro());
+            stmt.setString(7, cliente.getNumero());
+            stmt.setString(8, cliente.getRua());
+        //    stmt.setString(9, cliente.getTelefone());
             stmt.setInt(9, cliente.getId());
              
              stmt.executeUpdate();

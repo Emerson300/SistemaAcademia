@@ -10,8 +10,12 @@ import Entidades.Funcionario;
 import Entidades.Treino;
 import Entidades.Consulta;
 import java.awt.CardLayout;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -2011,17 +2015,22 @@ public class PrincipalView extends javax.swing.JFrame {
 
         Cliente cliente = new Cliente();
         ClienteDao clientedao = new ClienteDao();
+        SimpleDateFormat formate = new SimpleDateFormat("dd/MM/yyyy");  
+        String dataNasc;
+        
         try {
+            
             
             cliente.setNome(txtNome.getText());
             cliente.setSexo((String) cmbSexo.getSelectedItem());
-           // cliente.setDataNasc(txtData);
+            dataNasc=txtData.getText();
+            cliente.setDataNasc(new java.sql.Date( formate.parse(dataNasc).getTime()));
             cliente.setEstado(txtEstado.getText());
             cliente.setCidade(txtCidade.getText());
             cliente.setBairro(txtBairro.getText());
             cliente.setRua(txtRua.getText());
             cliente.setNumero(txtNumero.getText());
-            cliente.setTelefone(txtTelefone.getText());
+           // cliente.setTelefone(txtTelefone.getText());
             
             clientedao.Create(cliente);
           
@@ -2032,6 +2041,8 @@ public class PrincipalView extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
 
             JOptionPane.showMessageDialog(rootPane,"Erro! ");
+        } catch (ParseException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -2208,11 +2219,14 @@ public class PrincipalView extends javax.swing.JFrame {
     private void btnSalvarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarConsultaActionPerformed
         Consulta consulta = new Consulta();
         ConsultaDao consultaDao = new ConsultaDao();
+        SimpleDateFormat formate = new SimpleDateFormat("dd/MM/yyyy");
+        String data;
         try {
             
             consulta.setNomeCliente(txtNomeConsuta.getText());
             consulta.setNomeFuncionario(txtMedicoConsulta.getText());
-           // consulta.setDatas(txtDataConsulta.getText());
+            data=txtDataConsulta.getText();
+            consulta.setDatas( new java.sql.Date( formate.parse(data).getTime()));
            // consulta.setHorario(txtHorarioConsulta.getText());
             consulta.setObs(txtAreaConsulta.getText());
             
@@ -2227,6 +2241,8 @@ public class PrincipalView extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
 
             JOptionPane.showMessageDialog(rootPane,"Erro! ");
+        } catch (ParseException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnSalvarConsultaActionPerformed
@@ -2645,7 +2661,6 @@ public class PrincipalView extends javax.swing.JFrame {
             modelo.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
-                c.getIdade(),
                 c.getSexo(),
                 c.getDataNasc(),
                 c.getEstado(),
