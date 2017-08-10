@@ -209,6 +209,9 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         txtRadio = new javax.swing.JFormattedTextField();
         txtFemur = new javax.swing.JFormattedTextField();
+        jPanel41 = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        txtObsAvaliacao = new javax.swing.JTextArea();
         btnExcluirAvaliacao = new javax.swing.JButton();
         btnSalvarAvaliacao = new javax.swing.JButton();
         btnEditarAvaliacao = new javax.swing.JButton();
@@ -1687,14 +1690,15 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel39Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel47)
                     .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel39Layout.createSequentialGroup()
                             .addComponent(jLabel46)
                             .addGap(18, 18, 18)
                             .addComponent(txtSubescapular, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel39Layout.createSequentialGroup()
-                            .addComponent(jLabel45)
+                            .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel45)
+                                .addComponent(jLabel47))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtTriceps, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1706,23 +1710,23 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel39Layout.setVerticalGroup(
             jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel39Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSubescapular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel46))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel46)
+                    .addComponent(txtSubescapular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel45)
                     .addComponent(txtTriceps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSurailiaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel48)
                     .addComponent(txtAbdomencut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         jPanel40.setBorder(javax.swing.BorderFactory.createTitledBorder("Diâmetro(cm)"));
@@ -1758,7 +1762,7 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addComponent(jLabel57)
                         .addGap(51, 51, 51)
                         .addComponent(txtFemur, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel40Layout.setVerticalGroup(
             jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1773,6 +1777,29 @@ public class PrincipalView extends javax.swing.JFrame {
                     .addComponent(txtFemur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        jPanel41.setBorder(javax.swing.BorderFactory.createTitledBorder("Observação"));
+
+        txtObsAvaliacao.setColumns(20);
+        txtObsAvaliacao.setRows(5);
+        jScrollPane10.setViewportView(txtObsAvaliacao);
+
+        javax.swing.GroupLayout jPanel41Layout = new javax.swing.GroupLayout(jPanel41);
+        jPanel41.setLayout(jPanel41Layout);
+        jPanel41Layout.setHorizontalGroup(
+            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel41Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel41Layout.setVerticalGroup(
+            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel41Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
         jPanel37.setLayout(jPanel37Layout);
         jPanel37Layout.setHorizontalGroup(
@@ -1782,9 +1809,11 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
         jPanel37Layout.setVerticalGroup(
             jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1792,13 +1821,14 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel37Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel37Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addContainerGap()
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel37Layout.createSequentialGroup()
+                        .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         btnExcluirAvaliacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconClose.png"))); // NOI18N
@@ -1868,11 +1898,11 @@ public class PrincipalView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome", "Altura", "Peso", "Braço/Dir", "Braço/Esq", "Anti Braco/Dir", "Anti Braco/Esq", "Perna/Dir", "Perna/Esq", "Coxa/Dir", "Coxa/Esq", "Abdomen", "Cintura", "Quadril", "Subescapular", "Tríceps", "Suprailiaca", "AbdomenDobra", "Rádio", "Fêmur"
+                "Id", "Nome", "Altura", "Peso", "Braço/Dir", "Braço/Esq", "Anti Braco/Dir", "Anti Braco/Esq", "Perna/Dir", "Perna/Esq", "Coxa/Dir", "Coxa/Esq", "Abdomen", "Cintura", "Quadril", "Subescapular", "Tríceps", "Suprailiaca", "AbdomenDobra", "Rádio", "Fêmur", "Obs"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1960,7 +1990,7 @@ public class PrincipalView extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AvaliacaoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtIdAvaliacao, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))
+                        .addGap(31, 31, 31))
                     .addGroup(AvaliacaoLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(30, 30, 30)
@@ -1974,7 +2004,7 @@ public class PrincipalView extends javax.swing.JFrame {
                                 .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AvaliacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvarAvaliacao, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditarAvaliacao, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3062,6 +3092,7 @@ public class PrincipalView extends javax.swing.JFrame {
              txtAbdomencut.setText("");
              txtRadio.setText("");
              txtFemur.setText("");
+             txtObsAvaliacao.setText("");
              
             readJTableAvaliacao();
             
@@ -3097,6 +3128,7 @@ public class PrincipalView extends javax.swing.JFrame {
             avaliacao.setAbdomenDobra(txtAbdomencut.getText());
             avaliacao.setRadio(txtRadio.getText());
             avaliacao.setFemur(txtFemur.getText());
+            avaliacao.setObs(txtObsAvaliacao.getText());
             
             avaliacaoDao.Create(avaliacao);
             readJTableAvaliacao();
@@ -3141,6 +3173,7 @@ public class PrincipalView extends javax.swing.JFrame {
             avaliacao.setAbdomenDobra(txtAbdomencut.getText());
             avaliacao.setRadio(txtRadio.getText());
             avaliacao.setFemur(txtFemur.getText());
+            avaliacao.setObs(txtObsAvaliacao.getText());
             
             avaliacaoDao.Update(avaliacao);
             readJTableAvaliacao();
@@ -3192,6 +3225,7 @@ public class PrincipalView extends javax.swing.JFrame {
            txtAbdomencut.setText(jtAvaliacao.getValueAt(jtAvaliacao.getSelectedRow(), 18).toString());           
            txtRadio.setText(jtAvaliacao.getValueAt(jtAvaliacao.getSelectedRow(), 19).toString());           
            txtFemur.setText(jtAvaliacao.getValueAt(jtAvaliacao.getSelectedRow(), 20).toString());           
+           txtObsAvaliacao.setText(jtAvaliacao.getValueAt(jtAvaliacao.getSelectedRow(), 21).toString());           
            
         }
 
@@ -3394,12 +3428,14 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3459,6 +3495,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeTreino;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtNumeroFunc;
+    private javax.swing.JTextArea txtObsAvaliacao;
     private javax.swing.JFormattedTextField txtPernaDir;
     private javax.swing.JFormattedTextField txtPernaEsq;
     private javax.swing.JFormattedTextField txtPeso;
@@ -3535,6 +3572,7 @@ public class PrincipalView extends javax.swing.JFrame {
              txtAbdomencut.setText("");
              txtRadio.setText("");
              txtFemur.setText("");
+             txtObsAvaliacao.setText("");
         
     }
     
@@ -3647,6 +3685,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 a.getAbdomenDobra(),
                 a.getRadio(),
                 a.getFemur(),
+                a.getObs(),
                 
             });
         }

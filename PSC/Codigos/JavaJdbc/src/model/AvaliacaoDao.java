@@ -29,7 +29,7 @@ public class AvaliacaoDao {
     
         try {
             stmt = con.prepareStatement("insert into avaliacao (nome,altura,peso,bracoDir,bracoEsq,antiBracoDir,antiBracoEsq,pernaDir,pernaEsq,coxaDir,coxaEsq,Abdomen,\n" +
-"                                       cintura,quadril,subescapular,triceps,suprailiaca,abdomenDobra,radio,femur)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+"                                       cintura,quadril,subescapular,triceps,suprailiaca,abdomenDobra,radio,femur,obs)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, avaliacao.getNome());
             stmt.setString(2, avaliacao.getAltura());
             stmt.setString(3, avaliacao.getPeso());
@@ -50,6 +50,7 @@ public class AvaliacaoDao {
             stmt.setString(18, avaliacao.getAbdomenDobra());
             stmt.setString(19, avaliacao.getRadio());
             stmt.setString(20, avaliacao.getFemur());
+            stmt.setString(21, avaliacao.getObs());
             
             stmt.executeUpdate();
         
@@ -97,6 +98,7 @@ public class AvaliacaoDao {
                 avaliacao.setAbdomenDobra(rs.getString("abdomenDobra"));
                 avaliacao.setRadio(rs.getString("radio"));
                 avaliacao.setFemur(rs.getString("femur"));
+                avaliacao.setObs(rs.getString("Obs"));
                 
                 avaliacoes.add(avaliacao);
                 
@@ -117,7 +119,7 @@ public class AvaliacaoDao {
          
         try {
             stmt = con.prepareStatement("Update avaliacao Set nome=?,altura=?,peso=?,bracoDir=?,bracoEsq=?,antiBracoDir=?,antiBracoEsq=?,pernaDir=?,pernaEsq=?,coxaDir=?,coxaEsq=?,abdomen=?,\n" +
-"                                       cintura=?,quadril=?,subescapular=?,triceps=?,suprailiaca=?,abdomenDobra=?,radio=?,femur=? Where id = ?");
+"                                       cintura=?,quadril=?,subescapular=?,triceps=?,suprailiaca=?,abdomenDobra=?,radio=?,femur=?,obs=? Where id = ?");
             stmt.setString(1, avaliacao.getNome());
             stmt.setString(2, avaliacao.getAltura());
             stmt.setString(3, avaliacao.getPeso());
@@ -138,8 +140,9 @@ public class AvaliacaoDao {
             stmt.setString(18, avaliacao.getAbdomenDobra());
             stmt.setString(19, avaliacao.getRadio());
             stmt.setString(20, avaliacao.getFemur());
+            stmt.setString(21, avaliacao.getObs());
             
-            stmt.setInt(21, avaliacao.getId());
+            stmt.setInt(22, avaliacao.getId());
             
              stmt.executeUpdate();
              JOptionPane.showMessageDialog(null,"Dados Atualizados com Sucesso!");

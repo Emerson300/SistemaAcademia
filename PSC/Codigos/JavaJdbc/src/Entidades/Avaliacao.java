@@ -11,14 +11,14 @@ package Entidades;
  */
 public class Avaliacao {
     private String nome,altura,peso,bracoDir,bracoEsq,antiBracoDir,antiBracoEsq,pernaDir,pernaEsq,coxaDir,coxaEsq,Abdomen,
-                  cintura,quadril,subescapular,triceps,suprailiaca,abdomenDobra,radio,femur;
+                  cintura,quadril,subescapular,triceps,suprailiaca,abdomenDobra,radio,femur,obs;
     private int id;
    
     public Avaliacao() {
         
     }
 
-    public Avaliacao(String nome, String altura, String peso, String bracoDir, String bracoEsq, String antiBracoDir, String antiBracoEsq, String pernaDir, String pernaEsq, String coxaDir, String coxaEsq, String Abdomen, String cintura, String quadril, String subescapular, String triceps, String suprailiaca, String abdomenDobra, String radio, String femur, int id) {
+    public Avaliacao(String nome, String altura, String peso, String bracoDir, String bracoEsq, String antiBracoDir, String antiBracoEsq, String pernaDir, String pernaEsq, String coxaDir, String coxaEsq, String Abdomen, String cintura, String quadril, String subescapular, String triceps, String suprailiaca, String abdomenDobra, String radio, String femur, String obs, int id) {
         this.nome = nome;
         this.altura = altura;
         this.peso = peso;
@@ -39,6 +39,7 @@ public class Avaliacao {
         this.abdomenDobra = abdomenDobra;
         this.radio = radio;
         this.femur = femur;
+        this.obs = obs;
         this.id = id;
     }
 
@@ -202,6 +203,14 @@ public class Avaliacao {
         this.femur = femur;
     }
 
+    public String getObs() {
+        return obs;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+
     public int getId() {
         return id;
     }
@@ -211,6 +220,7 @@ public class Avaliacao {
     }
 
    
+
 
    
     
