@@ -11,6 +11,7 @@ import Entidades.Funcionario;
 import Entidades.Treino;
 import Entidades.Consulta;
 import Entidades.Despesa;
+import Entidades.Teste;
 import java.awt.CardLayout;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,6 +28,7 @@ import model.ConsultaDao;
 import model.TreinoDao;
 import model.AvaliacaoDao;
 import model.DespesaDao;
+import model.TesteDao;
 
 
 /**
@@ -112,12 +114,13 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         TxtNomeProfessor = new javax.swing.JTextField();
-        TxtDataAgenda = new javax.swing.JTextField();
+        txtDataTeste = new javax.swing.JFormattedTextField();
+        txtIdTeste = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        txtObsTeste = new javax.swing.JTextArea();
+        btnSalvarTeste = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         btnExcluirConsulta1 = new javax.swing.JButton();
@@ -125,7 +128,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtNomeBuscaTeste = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tabelaCliente = new javax.swing.JTable();
+        jtTeste = new javax.swing.JTable();
         Consultas = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -622,7 +625,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         jPanel6.add(FormularioClientes, "card2");
@@ -720,12 +723,12 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jtClientes.setSelectionBackground(new java.awt.Color(0, 204, 102));
         jtClientes.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jtClientesAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jtClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -772,11 +775,11 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout TelaBuscaClientesLayout = new javax.swing.GroupLayout(TelaBuscaClientes);
@@ -812,6 +815,12 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jLabel21.setText("Data do Teste:");
 
+        try {
+            txtDataTeste.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
@@ -830,7 +839,12 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TxtNomeProfessor)
-                            .addComponent(TxtDataAgenda))))
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addComponent(txtDataTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtIdTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
@@ -845,19 +859,21 @@ public class PrincipalView extends javax.swing.JFrame {
                     .addComponent(jLabel20)
                     .addComponent(TxtNomeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel21)
-                    .addComponent(TxtDataAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(87, Short.MAX_VALUE))
+                    .addComponent(txtDataTeste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtIdTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         jPanel17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel19.setText("Observação*");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        txtObsTeste.setColumns(20);
+        txtObsTeste.setRows(5);
+        jScrollPane2.setViewportView(txtObsTeste);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -878,21 +894,36 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconSave.png"))); // NOI18N
-        jButton1.setText("Salvar");
+        btnSalvarTeste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconSave.png"))); // NOI18N
+        btnSalvarTeste.setText("Salvar");
+        btnSalvarTeste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarTesteActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconPencil.png"))); // NOI18N
         jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconSearch.png"))); // NOI18N
         jButton3.setText("Buscar");
 
         btnExcluirConsulta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconClose.png"))); // NOI18N
         btnExcluirConsulta1.setText("Excluir");
+        btnExcluirConsulta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirConsulta1ActionPerformed(evt);
+            }
+        });
 
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Nome:");
@@ -908,7 +939,7 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSalvarTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(62, 62, 62)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69)
@@ -933,7 +964,7 @@ public class PrincipalView extends javax.swing.JFrame {
                     .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnSalvarTeste)
                     .addComponent(jButton2)
                     .addComponent(btnExcluirConsulta1)
                     .addComponent(jButton3)
@@ -946,16 +977,29 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Gerenciar Testes de Carga");
 
-        tabelaCliente.setModel(new javax.swing.table.DefaultTableModel(
+        jtTeste.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nome Do Aluno", "Professor", "Data"
+                "Nome Do Aluno", "Professor", "Data", "Obs"
             }
-        ));
-        tabelaCliente.setSelectionBackground(new java.awt.Color(0, 204, 102));
-        jScrollPane3.setViewportView(tabelaCliente);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtTeste.setSelectionBackground(new java.awt.Color(0, 204, 102));
+        jtTeste.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtTesteMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jtTeste);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -979,7 +1023,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1219,7 +1263,7 @@ public class PrincipalView extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2059,7 +2103,7 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel34Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Avaliacao, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(272, Short.MAX_VALUE))
         );
 
         jPanel6.add(jPanel34, "card7");
@@ -2571,7 +2615,7 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         telaCliente.addTab("Funcionários", new javax.swing.ImageIcon(getClass().getResource("/images/caucasian_head_man_person_people_avatar_2859.png")), jPanel7); // NOI18N
@@ -2611,7 +2655,7 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel31Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel44)
-                .addContainerGap(845, Short.MAX_VALUE))
+                .addContainerGap(829, Short.MAX_VALUE))
             .addGroup(jPanel31Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2921,7 +2965,7 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addComponent(txtIdDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)))
                 .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel42Layout = new javax.swing.GroupLayout(jPanel42);
@@ -2941,7 +2985,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        telaCliente.addTab("Despesas", jPanel42);
+        telaCliente.addTab("Despesas", new javax.swing.ImageIcon(getClass().getResource("/images/dinheiro.png")), jPanel42); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -3678,13 +3722,118 @@ public class PrincipalView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jtDespesaMouseClicked
 
+    private void btnSalvarTesteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarTesteActionPerformed
+          
+        Teste teste = new Teste();
+        TesteDao testeDao = new TesteDao();
+        SimpleDateFormat formate = new SimpleDateFormat("dd/MM/yyyy");
+     
+        String data;
+        try {
+            
+            teste.setNome(txtNomeDoAluno.getText());
+            teste.setNomeProfessor(TxtNomeProfessor.getText());
+            data=txtDataTeste.getText();
+            teste.setData( new java.sql.Date( formate.parse(data).getTime()));
+            teste.setObs(txtObsTeste.getText());
+            
+            
+            testeDao.Create(teste);
+          
+            JOptionPane.showMessageDialog(rootPane,"Salvo com Sucesso");
+            limparCamposTeste();
+            readJTableTeste();
+            
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(rootPane,"Erro! ");
+        } catch (ParseException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btnSalvarTesteActionPerformed
+
+    private void btnExcluirConsulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirConsulta1ActionPerformed
+
+        if(jtTeste.getSelectedRow()!= -1){
+            
+            Teste t = new Teste();
+            TesteDao tDao = new TesteDao();
+            SimpleDateFormat formate = new SimpleDateFormat("dd/MM/yyyy");
+              
+            t.setId((int) jtTeste.getValueAt(jtTeste.getSelectedRow(), 0));
+            
+            tDao.Delete(t);
+            
+             txtNomeDoAluno.setText("");
+             TxtNomeProfessor.setText("");
+             txtDataTeste.setText("");
+             txtObsTeste.setText("");
+             
+            readJTableTeste();
+            
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Selecione uma linha da Tabela Para Excluir Um Teste De Carga!");   
+
+    }//GEN-LAST:event_btnExcluirConsulta1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+            Teste teste = new Teste();
+            TesteDao testeDao = new TesteDao();
+            SimpleDateFormat formate = new SimpleDateFormat("dd/MM/yyyy");
+            String data;
+        
+        if (jtTeste.getSelectedRow() != -1) {
+            
+            try {
+            teste.setId(Integer.parseInt(txtIdTeste.getText()));
+            teste.setNome(txtNomeDoAluno.getText());
+            teste.setNomeProfessor(TxtNomeProfessor.getText());
+            data=txtDataTeste.getText();
+            teste.setData( new java.sql.Date( formate.parse(data).getTime()));
+            teste.setObs(txtObsTeste.getText());
+            
+            testeDao.Update(teste);
+            readJTableTeste();
+            limparCamposTeste();
+            
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane,"Erro");
+            
+            }
+         }
+            else 
+                JOptionPane.showMessageDialog(rootPane,"Selecione Uma Linha da Tabela Para Editar Dados!");
+            
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jtTesteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtTesteMouseClicked
+        
+        Teste teste = new Teste();
+        TesteDao testeDao = new TesteDao();
+        
+        if(jtTeste.getSelectedRow()!= -1){
+       
+           txtIdTeste.setText(jtTeste.getValueAt(jtTeste.getSelectedRow(), 0).toString());           
+           txtNomeDoAluno.setText(jtTeste.getValueAt(jtTeste.getSelectedRow(), 1).toString());           
+           TxtNomeProfessor.setText(jtTeste.getValueAt(jtTeste.getSelectedRow(), 2).toString());           
+           txtDataTeste.setText(jtTeste.getValueAt(jtTeste.getSelectedRow(), 3).toString());           
+           txtObsTeste.setText(jtTeste.getValueAt(jtTeste.getSelectedRow(), 4).toString());           
+        }
+
+    }//GEN-LAST:event_jtTesteMouseClicked
+
     private Funcionario extraiLinhaTblFuncionario(){
          Funcionario funcionario = new Funcionario();
          FuncionarioDao funcionariodao = new FuncionarioDao();
         
         if(jtFuncionario.getSelectedRow()!= -1){
        
-           //funcionario.setId((int) jtFuncionario.getValueAt(jtFuncionario.getSelectedRow(), 0));
+         
            txtId.setText(jtFuncionario.getValueAt(jtFuncionario.getSelectedRow(), 0).toString());           
            txtNomeFuncionario.setText(jtFuncionario.getValueAt(jtFuncionario.getSelectedRow(), 1).toString());           
            txtCpfFunc.setText(jtFuncionario.getValueAt(jtFuncionario.getSelectedRow(), 2).toString());           
@@ -3745,7 +3894,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JPanel MenuCliente;
     private javax.swing.JPanel TelaBuscaClientes;
     private javax.swing.JPanel Treinos;
-    private javax.swing.JTextField TxtDataAgenda;
     private javax.swing.JTextField TxtNomeProfessor;
     private javax.swing.JButton btnAgendar;
     private javax.swing.JButton btnBuscaAvaliacao;
@@ -3777,11 +3925,11 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JButton btnSalvarConsulta;
     private javax.swing.JButton btnSalvarDespesa;
     private javax.swing.JButton btnSalvarFuncionario;
+    private javax.swing.JButton btnSalvarTeste;
     private javax.swing.JButton btnSalvarTreino;
     private javax.swing.JButton btnTreinos;
     private javax.swing.JButton btnTreinos1;
     private javax.swing.JComboBox<String> cmbSexo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -3910,15 +4058,14 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable jtAvaliacao;
     private javax.swing.JTable jtClientes;
     private javax.swing.JTable jtDespesa;
     private javax.swing.JTable jtFuncionario;
     private javax.swing.JTable jtTabelaConsulta;
+    private javax.swing.JTable jtTeste;
     private javax.swing.JTable jtTreino;
-    private javax.swing.JTable tabelaCliente;
     private javax.swing.JTabbedPane telaCliente;
     private javax.swing.JFormattedTextField txtAbdomen;
     private javax.swing.JFormattedTextField txtAbdomencut;
@@ -3942,6 +4089,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTextField txtDataBuscaDespesa;
     private javax.swing.JFormattedTextField txtDataCompra;
     private javax.swing.JFormattedTextField txtDataConsulta;
+    private javax.swing.JFormattedTextField txtDataTeste;
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtEstadoFunc;
     private javax.swing.JFormattedTextField txtFemur;
@@ -3950,6 +4098,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdAvaliacao;
     private javax.swing.JTextField txtIdConsulta;
     private javax.swing.JTextField txtIdDespesa;
+    private javax.swing.JTextField txtIdTeste;
     private javax.swing.JTextField txtIdTreino;
     private javax.swing.JTextField txtMedicoConsulta;
     private javax.swing.JTextField txtNome;
@@ -3968,6 +4117,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTextField txtNumeroFunc;
     private javax.swing.JTextArea txtObsAvaliacao;
     private javax.swing.JTextArea txtObsDespesa;
+    private javax.swing.JTextArea txtObsTeste;
     private javax.swing.JFormattedTextField txtPernaDir;
     private javax.swing.JFormattedTextField txtPernaEsq;
     private javax.swing.JFormattedTextField txtPeso;
@@ -4055,6 +4205,14 @@ public class PrincipalView extends javax.swing.JFrame {
              txtDataCompra.setText("");
              txtValorCompra.setText("");
              txtObsDespesa.setText("");
+             
+    }
+     private void limparCamposTeste() {
+             txtId.setText("");
+             txtNomeDoAluno.setText("");
+             TxtNomeProfessor.setText("");
+             txtDataTeste.setText("");
+             txtObsTeste.setText("");
              
     }
     
@@ -4185,6 +4343,23 @@ public class PrincipalView extends javax.swing.JFrame {
                 df.format(d.getData()),
                 d.getValor(),
                 d.getObs(),
+                
+            });
+        }
+    }
+    public void readJTableTeste(){
+        DefaultTableModel modelo = (DefaultTableModel) jtTeste.getModel();
+        modelo.setNumRows(0);
+        TesteDao tDao = new TesteDao();
+        
+        for(Teste t: tDao.Read()){
+            
+            modelo.addRow(new Object[]{
+                t.getId(),
+                t.getNome(),
+                t.getNomeProfessor(),
+                df.format(t.getData()),
+                t.getObs(),
                 
             });
         }

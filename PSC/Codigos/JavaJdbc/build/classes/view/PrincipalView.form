@@ -183,7 +183,7 @@
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="274" max="32767" attributes="0"/>
+                                  <EmptySpace pref="258" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -783,11 +783,11 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="108" max="32767" attributes="0"/>
+                                      <EmptySpace pref="103" max="32767" attributes="0"/>
                                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="115" max="32767" attributes="0"/>
+                                      <EmptySpace pref="109" max="32767" attributes="0"/>
                                       <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                                      <EmptySpace pref="41" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1102,7 +1102,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane3" pref="534" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane3" pref="522" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1132,7 +1132,7 @@
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                                  <Component id="jButton1" min="-2" pref="117" max="-2" attributes="0"/>
+                                                  <Component id="btnSalvarTeste" min="-2" pref="117" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                                                   <Component id="jButton2" min="-2" pref="117" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
@@ -1164,7 +1164,7 @@
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnSalvarTeste" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="btnExcluirConsulta1" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1205,8 +1205,15 @@
                                                       <EmptySpace max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Component id="TxtNomeProfessor" max="32767" attributes="0"/>
-                                                          <Component id="TxtDataAgenda" max="32767" attributes="0"/>
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="txtDataTeste" min="-2" pref="129" max="-2" attributes="0"/>
+                                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                          </Group>
                                                       </Group>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                      <Component id="txtIdTeste" min="-2" pref="0" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
@@ -1227,11 +1234,13 @@
                                                   <Component id="TxtNomeProfessor" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="TxtDataAgenda" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtDataTeste" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace pref="87" max="32767" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="txtIdTeste" min="-2" pref="0" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                     </DimensionLayout>
@@ -1256,7 +1265,14 @@
                                     </Component>
                                     <Component class="javax.swing.JTextField" name="TxtNomeProfessor">
                                     </Component>
-                                    <Component class="javax.swing.JTextField" name="TxtDataAgenda">
+                                    <Component class="javax.swing.JFormattedTextField" name="txtDataTeste">
+                                      <Properties>
+                                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                                          <Format format="##/##/####" subtype="-1" type="5"/>
+                                        </Property>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JTextField" name="txtIdTeste">
                                     </Component>
                                   </SubComponents>
                                 </Container>
@@ -1291,7 +1307,7 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jScrollPane2" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane2" pref="157" max="32767" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -1310,7 +1326,7 @@
 
                                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                       <SubComponents>
-                                        <Component class="javax.swing.JTextArea" name="jTextArea1">
+                                        <Component class="javax.swing.JTextArea" name="txtObsTeste">
                                           <Properties>
                                             <Property name="columns" type="int" value="20"/>
                                             <Property name="rows" type="int" value="5"/>
@@ -1320,13 +1336,16 @@
                                     </Container>
                                   </SubComponents>
                                 </Container>
-                                <Component class="javax.swing.JButton" name="jButton1">
+                                <Component class="javax.swing.JButton" name="btnSalvarTeste">
                                   <Properties>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/images/iconSave.png"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Salvar"/>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarTesteActionPerformed"/>
+                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JButton" name="jButton2">
                                   <Properties>
@@ -1335,6 +1354,9 @@
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Editar"/>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JButton" name="jButton3">
                                   <Properties>
@@ -1351,6 +1373,9 @@
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Excluir"/>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcluirConsulta1ActionPerformed"/>
+                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="jLabel29">
                                   <Properties>
@@ -1382,17 +1407,23 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="tabelaCliente">
+                                <Component class="javax.swing.JTable" name="jtTeste">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                      <Table columnCount="3" rowCount="0">
-                                        <Column editable="true" title="Nome Do Aluno" type="java.lang.Object"/>
-                                        <Column editable="true" title="Professor" type="java.lang.Object"/>
-                                        <Column editable="true" title="Data" type="java.lang.Object"/>
+                                      <Table columnCount="4" rowCount="0">
+                                        <Column editable="false" title="Nome Do Aluno" type="java.lang.Object"/>
+                                        <Column editable="false" title="Professor" type="java.lang.Object"/>
+                                        <Column editable="false" title="Data" type="java.lang.Object"/>
+                                        <Column editable="false" title="Obs" type="java.lang.Object"/>
                                       </Table>
                                     </Property>
                                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                       <TableColumnModel selectionModel="0">
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
                                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                           <Title/>
                                           <Editor/>
@@ -1417,6 +1448,9 @@
                                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtTesteMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -1810,7 +1844,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane5" pref="539" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane5" pref="523" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -2298,7 +2332,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="Avaliacao" min="-2" pref="614" max="-2" attributes="0"/>
-                                  <EmptySpace pref="288" max="32767" attributes="0"/>
+                                  <EmptySpace pref="272" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -3425,7 +3459,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel23" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="194" max="32767" attributes="0"/>
+                          <EmptySpace pref="178" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4213,7 +4247,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="845" max="32767" attributes="0"/>
+                              <EmptySpace pref="829" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -4266,6 +4300,9 @@
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Despesas">
                     <Property name="tabTitle" type="java.lang.String" value="Despesas"/>
+                    <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/images/dinheiro.png"/>
+                    </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -4349,7 +4386,7 @@
                                   </Group>
                               </Group>
                               <Component id="jPanel49" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="304" max="32767" attributes="0"/>
+                              <EmptySpace pref="288" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
