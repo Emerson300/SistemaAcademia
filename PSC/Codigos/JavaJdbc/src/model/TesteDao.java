@@ -27,7 +27,7 @@ public class TesteDao {
         PreparedStatement stmt = null;
     
         try {
-            stmt = con.prepareStatement("insert into despesa ( nome,nomeProfessor,data,obs) values (?,?,?,?)");
+            stmt = con.prepareStatement("insert into teste ( nome,nomeProfessor,data,obs) values (?,?,?,?)");
             stmt.setString(1, teste.getNome());
             stmt.setString(2, teste.getNomeProfessor());
             stmt.setDate(3, teste.getData());

@@ -90,6 +90,45 @@ public class FuncionarioDao {
         return funcionarios;
         
     }
+    public List <Funcionario> ReadForNameFunc(String nome){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt =null;
+        ResultSet rs = null;
+        
+        List <Funcionario> funcionarios =new ArrayList<>();
+        
+        try {
+            stmt = con.prepareStatement("Select * from funcionario Where nome like ?");
+            stmt.setString(1, "%"+nome+"%");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Funcionario funcionario = new Funcionario();
+                
+                funcionario.setId(rs.getInt("id"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setCpf(rs.getString("cpf"));
+                funcionario.setRg(rs.getString("rg"));
+                funcionario.setEstado(rs.getString("estado"));
+                funcionario.setCidade(rs.getString("cidade"));
+                funcionario.setBairro(rs.getString("bairro"));
+                funcionario.setNumero(rs.getString("numero"));
+                funcionario.setRua(rs.getString("rua"));
+                funcionario.setTelefone(rs.getString("telefone"));
+                funcionario.setSalario(rs.getFloat("salario"));
+                
+                funcionarios.add(funcionario);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return funcionarios;
+        
+    }
     
      public void  Update(Funcionario funcionario){
         

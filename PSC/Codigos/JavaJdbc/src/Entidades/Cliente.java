@@ -12,7 +12,7 @@ import java.sql.Date;
  * @author emerson
  */
 public class Cliente {
-   private int id,idade; 
+   private int id; 
    private String nome,estado,cidade,rua,bairro,telefone,sexo,numero;
    private Date dataNasc;
     
@@ -20,9 +20,8 @@ public class Cliente {
         
    }
 
-    public Cliente(int id, int idade, String numero, String nome, String estado, String cidade, String rua, String bairro, String telefone, String sexo, Date dataNasc) {
+    public Cliente(int id, String numero, String nome, String estado, String cidade, String rua, String bairro, String telefone, String sexo, Date dataNasc) {
         this.id = id;
-        this.idade = idade;
         this.numero = numero;
         this.nome = nome;
         this.estado = estado;
@@ -40,14 +39,6 @@ public class Cliente {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
     }
 
     public String getNumero() {
@@ -122,10 +113,4 @@ public class Cliente {
         this.dataNasc = dataNasc;
     }
    
-   
-
-    
-    
-
-    
 }

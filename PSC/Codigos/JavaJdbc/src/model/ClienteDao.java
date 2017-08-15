@@ -29,7 +29,7 @@ public class ClienteDao{
         PreparedStatement stmt = null;
     
         try {
-            stmt = con.prepareStatement("insert into cliente (nome,sexo,dataNasc,estado,cidade,bairro,numero,rua)values(?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("insert into cliente (nome,sexo,dataNasc,estado,cidade,bairro,numero,rua,telefone)values(?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getSexo());
             stmt.setDate(3, cliente.getDataNasc());
@@ -38,7 +38,7 @@ public class ClienteDao{
             stmt.setString(6, cliente.getBairro());
             stmt.setString(7, cliente.getNumero());
             stmt.setString(8, cliente.getRua());
-            //stmt.setString(9, cliente.getTelefone());
+            stmt.setString(9, cliente.getTelefone());
             
             
             stmt.executeUpdate();
@@ -75,7 +75,7 @@ public class ClienteDao{
                 cliente.setBairro(rs.getString("bairro"));
                 cliente.setNumero(rs.getString("numero"));
                 cliente.setRua(rs.getString("rua"));
-                //cliente.setTelefone(rs.getString("telefone"));
+                cliente.setTelefone(rs.getString("telefone"));
                 
                 clientes.add(cliente);
                 
@@ -89,13 +89,52 @@ public class ClienteDao{
         
     }
     
+    public List<Cliente> ReadForName(String nome){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt =null;
+        ResultSet rs = null;
+        
+        List <Cliente> clientes =new ArrayList<>();
+        
+        try {
+            stmt = con.prepareStatement("Select * from cliente WHERE nome LIKE ?");
+            stmt.setString(1, "%"+nome+"%");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Cliente cliente = new Cliente();
+                
+                cliente.setId(rs.getInt("id"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setSexo(rs.getString("sexo"));
+                cliente.setDataNasc(rs.getDate("dataNasc"));
+                cliente.setEstado(rs.getString("estado"));
+                cliente.setCidade(rs.getString("cidade"));
+                cliente.setBairro(rs.getString("bairro"));
+                cliente.setNumero(rs.getString("numero"));
+                cliente.setRua(rs.getString("rua"));
+                cliente.setTelefone(rs.getString("telefone"));
+                
+                clientes.add(cliente);
+                
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Nenhum Cliente Encontrado");
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return clientes;
+        
+    }
+    
      public void  Update(Cliente cliente){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt =null;
          
         try {
-            stmt = con.prepareStatement("Update cliente Set nome=?,sexo=?,dataNasc=?,estado=?,cidade=?,bairro=?,numero=?,rua=? Where id = ?");
+            stmt = con.prepareStatement("Update cliente Set nome=?,sexo=?,dataNasc=?,estado=?,cidade=?,bairro=?,numero=?,rua=?,telefone=? Where id = ?");
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getSexo());
             stmt.setDate(3, cliente.getDataNasc());
@@ -104,8 +143,8 @@ public class ClienteDao{
             stmt.setString(6, cliente.getBairro());
             stmt.setString(7, cliente.getNumero());
             stmt.setString(8, cliente.getRua());
-        //    stmt.setString(9, cliente.getTelefone());
-            stmt.setInt(9, cliente.getId());
+            stmt.setString(9, cliente.getTelefone());
+            stmt.setInt(10, cliente.getId());
              
              stmt.executeUpdate();
              JOptionPane.showMessageDialog(null,"Dados Atualizado com Sucesso!");

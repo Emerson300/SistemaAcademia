@@ -29,10 +29,10 @@ public class AvaliacaoDao {
     
         try {
             stmt = con.prepareStatement("insert into avaliacao (nome,altura,peso,bracoDir,bracoEsq,antiBracoDir,antiBracoEsq,pernaDir,pernaEsq,coxaDir,coxaEsq,Abdomen,\n" +
-"                                       cintura,quadril,subescapular,triceps,suprailiaca,abdomenDobra,radio,femur,obs)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+"                                       cintura,quadril,subescapular,triceps,suprailiaca,abdomenDobra,radio,femur,obs,imc)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, avaliacao.getNome());
-            stmt.setString(2, avaliacao.getAltura());
-            stmt.setString(3, avaliacao.getPeso());
+            stmt.setFloat(2, avaliacao.getAltura());
+            stmt.setFloat(3, avaliacao.getPeso());
             stmt.setString(4, avaliacao.getBracoDir());
             stmt.setString(5, avaliacao.getBracoEsq());
             stmt.setString(6, avaliacao.getAntiBracoDir());
@@ -51,6 +51,7 @@ public class AvaliacaoDao {
             stmt.setString(19, avaliacao.getRadio());
             stmt.setString(20, avaliacao.getFemur());
             stmt.setString(21, avaliacao.getObs());
+            stmt.setFloat(22, avaliacao.getImc());
             
             stmt.executeUpdate();
         
@@ -79,8 +80,8 @@ public class AvaliacaoDao {
                 
                 avaliacao.setId(rs.getInt("id"));
                 avaliacao.setNome(rs.getString("nome"));
-                avaliacao.setAltura(rs.getString("altura"));
-                avaliacao.setPeso(rs.getString("peso"));
+                avaliacao.setAltura(rs.getFloat("altura"));
+                avaliacao.setPeso(rs.getFloat("peso"));
                 avaliacao.setBracoDir(rs.getString("bracoDir"));
                 avaliacao.setBracoEsq(rs.getString("bracoEsq"));
                 avaliacao.setAntiBracoDir(rs.getString("antiBracoDir"));
@@ -99,6 +100,59 @@ public class AvaliacaoDao {
                 avaliacao.setRadio(rs.getString("radio"));
                 avaliacao.setFemur(rs.getString("femur"));
                 avaliacao.setObs(rs.getString("Obs"));
+                avaliacao.setImc(rs.getFloat("imc"));
+                
+                avaliacoes.add(avaliacao);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return avaliacoes;
+        
+    }
+    
+    public List <Avaliacao> ReadForName(String nome){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt =null;
+        ResultSet rs = null;
+        
+        List <Avaliacao> avaliacoes =new ArrayList();
+        
+        try {
+            stmt = con.prepareStatement("Select * from avaliacao Where nome like ?");
+            stmt.setString(1, nome);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Avaliacao avaliacao = new Avaliacao();
+                
+                avaliacao.setId(rs.getInt("id"));
+                avaliacao.setNome(rs.getString("nome"));
+                avaliacao.setAltura(rs.getFloat("altura"));
+                avaliacao.setPeso(rs.getFloat("peso"));
+                avaliacao.setBracoDir(rs.getString("bracoDir"));
+                avaliacao.setBracoEsq(rs.getString("bracoEsq"));
+                avaliacao.setAntiBracoDir(rs.getString("antiBracoDir"));
+                avaliacao.setAntiBracoEsq(rs.getString("antiBracoEsq"));
+                avaliacao.setPernaDir(rs.getString("pernaDir"));
+                avaliacao.setPernaEsq(rs.getString("pernaEsq"));
+                avaliacao.setCoxaDir(rs.getString("coxaDir"));
+                avaliacao.setCoxaEsq(rs.getString("coxaEsq"));
+                avaliacao.setAbdomen(rs.getString("abdomen"));
+                avaliacao.setCintura(rs.getString("cintura"));
+                avaliacao.setQuadril(rs.getString("quadril"));
+                avaliacao.setSubescapular(rs.getString("subescapular"));
+                avaliacao.setSuprailiaca(rs.getString("suprailiaca"));
+                avaliacao.setTriceps(rs.getString("triceps"));
+                avaliacao.setAbdomenDobra(rs.getString("abdomenDobra"));
+                avaliacao.setRadio(rs.getString("radio"));
+                avaliacao.setFemur(rs.getString("femur"));
+                avaliacao.setObs(rs.getString("Obs"));
+                avaliacao.setImc(rs.getFloat("imc"));
                 
                 avaliacoes.add(avaliacao);
                 
@@ -119,10 +173,10 @@ public class AvaliacaoDao {
          
         try {
             stmt = con.prepareStatement("Update avaliacao Set nome=?,altura=?,peso=?,bracoDir=?,bracoEsq=?,antiBracoDir=?,antiBracoEsq=?,pernaDir=?,pernaEsq=?,coxaDir=?,coxaEsq=?,abdomen=?,\n" +
-"                                       cintura=?,quadril=?,subescapular=?,triceps=?,suprailiaca=?,abdomenDobra=?,radio=?,femur=?,obs=? Where id = ?");
+"                                       cintura=?,quadril=?,subescapular=?,triceps=?,suprailiaca=?,abdomenDobra=?,radio=?,femur=?,obs=?,imc=? Where id = ?");
             stmt.setString(1, avaliacao.getNome());
-            stmt.setString(2, avaliacao.getAltura());
-            stmt.setString(3, avaliacao.getPeso());
+            stmt.setFloat(2, avaliacao.getAltura());
+            stmt.setFloat(3, avaliacao.getPeso());
             stmt.setString(4, avaliacao.getBracoDir());
             stmt.setString(5, avaliacao.getBracoEsq());
             stmt.setString(6, avaliacao.getAntiBracoDir());
@@ -141,13 +195,13 @@ public class AvaliacaoDao {
             stmt.setString(19, avaliacao.getRadio());
             stmt.setString(20, avaliacao.getFemur());
             stmt.setString(21, avaliacao.getObs());
+            stmt.setFloat(22, avaliacao.getImc());
             
-            stmt.setInt(22, avaliacao.getId());
+            stmt.setInt(23, avaliacao.getId());
             
              stmt.executeUpdate();
              JOptionPane.showMessageDialog(null,"Dados Atualizados com Sucesso!");
              
-            //seila
         } catch (Exception e) {
                JOptionPane.showMessageDialog(null,"Erro ao Atualizar Dados!"+e);
         }

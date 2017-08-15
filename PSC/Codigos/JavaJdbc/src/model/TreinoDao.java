@@ -71,6 +71,38 @@ public class TreinoDao {
         return treinos;
         
     }
+    public List <Treino> ReadForName(String nome){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt =null;
+        ResultSet rs = null;
+        
+        List <Treino> treinos =new ArrayList();
+        
+        try {
+            stmt = con.prepareStatement("Select * from treino where nome like ?");
+            stmt.setString(1,"%"+nome+"%");
+           
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Treino treino = new Treino();
+                
+                treino.setId(rs.getInt("id"));
+                treino.setNome(rs.getString("nome"));
+                treino.setCronograma(rs.getString("cronograma"));
+                
+                treinos.add(treino);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return treinos;
+        
+    }
     
      public void  Update(Treino treino){
         

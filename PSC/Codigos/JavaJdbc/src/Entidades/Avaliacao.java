@@ -10,18 +10,17 @@ package Entidades;
  * @author emerson
  */
 public class Avaliacao {
-    private String nome,altura,peso,bracoDir,bracoEsq,antiBracoDir,antiBracoEsq,pernaDir,pernaEsq,coxaDir,coxaEsq,Abdomen,
+    private String nome,bracoDir,bracoEsq,antiBracoDir,antiBracoEsq,pernaDir,pernaEsq,coxaDir,coxaEsq,Abdomen,
                   cintura,quadril,subescapular,triceps,suprailiaca,abdomenDobra,radio,femur,obs;
     private int id;
+    private float altura,peso,imc;
    
     public Avaliacao() {
         
     }
 
-    public Avaliacao(String nome, String altura, String peso, String bracoDir, String bracoEsq, String antiBracoDir, String antiBracoEsq, String pernaDir, String pernaEsq, String coxaDir, String coxaEsq, String Abdomen, String cintura, String quadril, String subescapular, String triceps, String suprailiaca, String abdomenDobra, String radio, String femur, String obs, int id) {
+    public Avaliacao(String nome, String bracoDir, String bracoEsq, String antiBracoDir, String antiBracoEsq, String pernaDir, String pernaEsq, String coxaDir, String coxaEsq, String Abdomen, String cintura, String quadril, String subescapular, String triceps, String suprailiaca, String abdomenDobra, String radio, String femur, String obs, int id, float altura, float peso) {
         this.nome = nome;
-        this.altura = altura;
-        this.peso = peso;
         this.bracoDir = bracoDir;
         this.bracoEsq = bracoEsq;
         this.antiBracoDir = antiBracoDir;
@@ -41,6 +40,9 @@ public class Avaliacao {
         this.femur = femur;
         this.obs = obs;
         this.id = id;
+        this.altura = altura;
+        this.peso = peso;
+        this.imc = imc;
     }
 
     public String getNome() {
@@ -49,22 +51,6 @@ public class Avaliacao {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getAltura() {
-        return altura;
-    }
-
-    public void setAltura(String altura) {
-        this.altura = altura;
-    }
-
-    public String getPeso() {
-        return peso;
-    }
-
-    public void setPeso(String peso) {
-        this.peso = peso;
     }
 
     public String getBracoDir() {
@@ -219,11 +205,28 @@ public class Avaliacao {
         this.id = id;
     }
 
-   
+    public float getAltura() {
+        return altura;
+    }
 
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
 
-   
-    
-                    
-    
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public float getImc() {
+        return imc;
+    }
+
+    public void setImc(float imc) {
+        this.imc = imc;
+    }
+
 }

@@ -8,6 +8,7 @@ package model;
 import Entidades.Consulta;
 import connection.ConnectionFactory;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -73,6 +74,41 @@ public class ConsultaDao {
             }
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return consultas;
+        
+    }
+    
+    public List <Consulta> ReadForName(String nomeCliente){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt =null;
+        ResultSet rs = null;
+        
+        List <Consulta> consultas =new ArrayList();
+        
+        try {
+            stmt = con.prepareStatement("Select * from consulta where nomeCliente like ?");
+            stmt.setString(1,"%"+nomeCliente+"%");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Consulta consulta = new Consulta();
+                
+                consulta.setId(rs.getInt("id"));
+                consulta.setNomeCliente(rs.getString("nomeCliente"));
+                consulta.setNomeFuncionario(rs.getString("nomeFuncionario"));
+                consulta.setDatas(rs.getDate("datas"));
+                consulta.setHorario(rs.getTime("horario"));
+                consulta.setObs(rs.getString("obs"));
+                
+                consultas.add(consulta);
+                
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Nenhum Resultado Encontrado");
         }finally{
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
